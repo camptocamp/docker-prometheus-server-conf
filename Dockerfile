@@ -1,7 +1,7 @@
 FROM alpine
 
-ADD /prometheus.yml /etc/prometheus-config/
+ADD /prometheus.yml /
 
-VOLUME ["/etc/prometheus-config"]
+VOLUME ["/etc/prometheus"]
 
-ENTRYPOINT ["/bin/true"]
+ENTRYPOINT ["/bin/cp", "/prometheus.yml", "/etc/prometheus/conf.d/default.yml"]
