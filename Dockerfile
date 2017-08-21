@@ -1,6 +1,7 @@
 FROM alpine
 
 ADD /prometheus.yml /
+COPY /docker-entrypoint.sh /
 
-ENTRYPOINT ["/bin/mkdir", "-p", "/etc/prometheus/conf.d/"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/bin/cp", "/prometheus.yml", "/etc/prometheus/conf.d/default.yml"]
